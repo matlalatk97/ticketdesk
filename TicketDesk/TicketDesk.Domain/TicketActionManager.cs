@@ -122,6 +122,7 @@ namespace TicketDesk.Domain
             string category,
             string owner,
             string tagList,
+            string departmentList,
             decimal? estimatedDuration,
             decimal? actualDuraion,
             string targetDateAsString,
@@ -164,6 +165,11 @@ namespace TicketDesk.Domain
                     {
                         sb.AppendLine(string.Format("<dd>    {0}</dd>", PropertyUtility.GetPropertyDisplayString<Ticket>(p => p.TagList)));
                         ticket.TagList = tagList;
+                    }
+                    if (ticket.DepartmentList != departmentList)
+                    {
+                        sb.AppendLine(string.Format("<dd>    {0}</dd>", PropertyUtility.GetPropertyDisplayString<Ticket>(p => p.DepartmentList)));
+                        ticket.DepartmentList = departmentList;
                     }
                     if ((SecurityProvider.IsTdHelpDeskUser || settings.Permissions.AllowInternalUsersToEditPriority) && ticket.Priority != priority)
                     {
