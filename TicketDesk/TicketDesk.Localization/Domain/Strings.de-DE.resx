@@ -445,4 +445,10 @@
   <data name="DefaultLogonDomain" xml:space="preserve">
     <value>Standard Anmeldedomäne</value>
   </data>
+  <data name="TicketDepartmentList" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="TicketDepartmentListShort" xml:space="preserve">
+    <value>-</value>
+  </data>
 </root>

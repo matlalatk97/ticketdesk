@@ -117,6 +117,7 @@ namespace TicketDesk.Web.Client.Controllers
             string title,
             string details,
             string priority,
+            string departmentList,
             string dueDateAsString,
             string ticketType,
             string category,
@@ -129,7 +130,7 @@ namespace TicketDesk.Web.Client.Controllers
         {
             details = details.StripHtmlWhenEmpty();
             var projectName = await Context.Projects.Where(p => p.ProjectId == projectId).Select(s=>s.ProjectName).FirstOrDefaultAsync();
-            var activityFn = Context.TicketActions.EditTicketInfo(comment, projectId, projectName, title, details, priority, dueDateAsString, ticketType, category, owner, tagList, estimatedDuration, actualDuration, targetDateAsString, resolutionDateAsString, Context.TicketDeskSettings);
+            var activityFn = Context.TicketActions.EditTicketInfo(comment, projectId, projectName, title, details, priority, dueDateAsString, ticketType, category, owner, tagList, departmentList, estimatedDuration, actualDuration, targetDateAsString, resolutionDateAsString, Context.TicketDeskSettings);
             return await PerformTicketAction(ticketId, activityFn, TicketActivity.EditTicketInfo);
         }
 
